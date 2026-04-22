@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fas fa-wallet"></i> Expense Tracker</h1>
+            <p class="subtitle">Manage your expenses efficiently</p>
+        </header>
+
+        <!-- Balance Section -->
+        <div class="balance-container">
+            <div class="balance-card">
+                <h3>Total Balance</h3>
+                <h2 id="balance">₹0.00</h2>
+            </div>
+            <div class="summary-cards">
+                <div class="card income-card">
+                    <div class="card-content">
+                        <i class="fas fa-arrow-up"></i>
+                        <div>
+                            <p>Income</p>
+                            <h3 id="income">₹0.00</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card expense-card">
+                    <div class="card-content">
+                        <i class="fas fa-arrow-down"></i>
+                        <div>
+                            <p>Expenses</p>
+                            <h3 id="expenses">₹0.00</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Transaction Form -->
+        <div class="form-container">
+            <h2><i class="fas fa-plus-circle"></i> Add New Transaction</h2>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="Enter description..." required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="amount">Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select id="type" required>
+                            <option value="expense">Expense</option>
+                            <option value="income">Income</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="Food">🍔 Food</option>
+                            <option value="Transport">🚗 Transport</option>
+                            <option value="Shopping">🛍️ Shopping</option>
+                            <option value="Bills">💡 Bills</option>
+                            <option value="Entertainment">🎮 Entertainment</option>
+                            <option value="Health">🏥 Health</option>
+                            <option value="Education">📚 Education</option>
+                            <option value="Salary">💰 Salary</option>
+                            <option value="Other">📌 Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-check"></i> Add Transaction
+                </button>
+            </form>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-container">
+            <h2><i class="fas fa-filter"></i> Filter Transactions</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="income">Income</button>
+                <button class="filter-btn" data-filter="expense">Expense</button>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search" placeholder="Search transactions...">
+            </div>
+        </div>
+
+        <!-- Transactions List -->
+        <div class="transactions-container">
+            <div class="transactions-header">
+                <h2><i class="fas fa-list"></i> Transaction History</h2>
+                <button class="btn-clear" id="clear-all">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+            <div id="transaction-list" class="transaction-list">
+                <!-- Transactions will be added here dynamically -->
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>No transactions yet. Add your first transaction above!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Summary -->
+        <div class="summary-container">
+            <h2><i class="fas fa-chart-pie"></i> Category Summary</h2>
+            <div id="category-summary" class="category-summary">
+                <!-- Category summary will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
